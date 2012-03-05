@@ -18,3 +18,14 @@ next level is achieved by moving to the down stairs symbol ">".
 2) Only look at your surroundings
 3) Fastest time wins (we'll remove the sleep call to time them)
 4) Any other rules I make up on the night :)
+
+
+## Installation
+
+1) git clone git@github.com:MrJaba/IpRogue.git
+or 
+copy the files
+
+2) bundle install
+
+3) ruby game.rb
