@@ -3,11 +3,12 @@ require './player'
 require './dungeon'
 
 class Game
-  attr_accessor :dungeon, :player
+  attr_accessor :dungeon, :player, :dungeons
   
   def initialize
     @player = Player.new
-    @dungeon = Dungeon.new(player:@player)
+    @dungeons = Array(1..4)
+    next_dungeon
   end
 
   def run
@@ -16,12 +17,17 @@ class Game
       update
       sleep(0.5)
     end until finished?
+    puts "FIN!"
   end
   
 private
 
+  def next_dungeon
+    @dungeon = Dungeon.new(player:@player, map_file:"level_#{dungeons.shift}")
+  end
+
   def finished?
-    #dungeons.empty?
+    dungeons.empty? && dungeon.complete?
   end
   
   def update
