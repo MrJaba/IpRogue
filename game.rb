@@ -15,10 +15,14 @@ class Game
       @dungeon.render 
       update
       sleep(0.5)
-    end until false
+    end until finished?
   end
   
 private
+
+  def finished?
+    #dungeons.empty?
+  end
   
   def update
     player.move
@@ -26,4 +30,4 @@ private
   
 end
 
-Game.new.run
+#Game.new.run

@@ -24,4 +24,12 @@ module Tiles
   def start_symbol
     "<"
   end
+  
+  def down_stairs_symbol
+    ">"
+  end
+  
+  def goal_symbol
+    "&"
+  end
 end

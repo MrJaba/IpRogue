@@ -1,4 +1,3 @@
-require 'ruby-debug'
 class Dungeon
   attr_accessor :map, :player
   
@@ -6,13 +5,17 @@ class Dungeon
     map_file = options.fetch(:map_file,"level_1")
     @player = options.fetch(:player, Player.new)
     @map = read_map(map_file)
-    @player.start_at(*player_start)
+    @player.start_at(*player_start_position)
   end
   
   def render
     out = clear_screen
     @map.each_with_index{|row, index| out << render_row(row, index) }
     puts out
+  end
+  
+  def complete?
+    @player.position == goal_position
   end
   
 private
@@ -25,9 +28,18 @@ private
     map
   end
 
-  def player_start
-    row = @map.find_index{|row| row.include? Tiles.start_symbol}
-    [row,@map[row].index(Tiles.start_symbol)]
+  def player_start_position
+    find_tile(Tiles.start_symbol)
+  end
+  
+  def goal_position
+    find_tile(Tiles.down_stairs_symbol) || find_tile(Tiles.goal_symbol)
+  end
+  
+  def find_tile(tile)
+    row = @map.find_index{|row| row.include? tile}
+    column = row && @map[row].index(tile)
+    row && column && [column, row]
   end
 
   def clear_screen
