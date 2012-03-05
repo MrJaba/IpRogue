@@ -18,6 +18,15 @@ class Dungeon
     @player.position == goal_position
   end
   
+  def view
+    (-1..1).collect do |dy|
+      (-1..1).collect do |dx|
+        x, y = @player.x + dx, @player.y + dy
+        [x, y, "#{@map[y][x]}"] if x >= 0 && y >= 0 && x < @map.first.length && y < @map.length
+      end
+    end.flatten(1).compact
+  end
+  
 private
 
   def read_map(map_file)
