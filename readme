@@ -1,0 +1,20 @@
+ _______ ______ ______  _______ _______ 
+|_     _|   __ \   __ \|   |   |     __|
+ _|   |_|    __/      <|   |   |    |  |
+|_______|___|  |___|__||_______|_______|
+                                        
+## And the Ampersand of Power!
+
+This month we have a challenge of epic proportions. We are going to hunt the "Ampersand of Power".
+But not ourselves, that would be far too dangerous, health and safety would have a field day. No,
+we're going to build AI walkers to do the job for us. 
+
+## Rules
+
+The aim is to get to the "&" in level_4, to get there you must traverse the other 3 levels, getting to the
+next level is achieved by moving to the down stairs symbol ">".
+
+1) 1 move per update call, in any direction (including diagonals
+2) Only look at your surroundings
+3) Fastest time wins (we'll remove the sleep call to time them)
+4) Any other rules I make up on the night :)
