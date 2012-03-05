@@ -4,6 +4,7 @@ class Dungeon
   def initialize(options={})
     map_file = options.fetch(:map_file,"level_1")
     @player = options.fetch(:player, Player.new)
+    @player.surroundings = self
     @map = read_map(map_file)
     @player.start_at(*player_start_position)
   end
