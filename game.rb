@@ -36,4 +36,4 @@ private
   
 end
 
-#Game.new.run
+Game.new.run
